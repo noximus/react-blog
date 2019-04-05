@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPostsAndUsers } from "../actions";
 
-import UserHeader from './UserHeader';
+import UserHeader from "./UserHeader";
 
 class PostList extends Component {
   componentDidMount() {
@@ -26,16 +26,15 @@ class PostList extends Component {
   }
   render() {
     console.log(this.props.posts);
-    return (
-      <div className="ui relaxed divided list">
-        {this.renderList()}
-      </div>
-    );
+    return <div className="ui relaxed divided list">{this.renderList()}</div>;
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   posts: state.posts
-})
+});
 
-export default connect(mapStateToProps, { fetchPostsAndUsers })(PostList);
+export default connect(
+  mapStateToProps,
+  { fetchPostsAndUsers }
+)(PostList);
